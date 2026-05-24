@@ -9,7 +9,7 @@ int main() {
   consoleInit(GFX_TOP, NULL);
 
   // This version or higher is required creating/swaping local accounts
-  FRDA_SetClientSdkVersion(0x70000c8);
+  FRD_SetClientSdkVersion(0x70000c8);
   
   int const pretendo_act = 2;
 
@@ -22,7 +22,7 @@ int main() {
     hidScanInput();
 
     if (hidKeysDown() & KEY_X) {
-      Result rc = FRDA_DeleteLocalAccount(pretendo_act));
+      Result rc = FRDA_DeleteLocalAccount(pretendo_act);
       if(R_FAILED(rc)) {
          printf("Error: %08lx\n\n", rc);
       }else{
