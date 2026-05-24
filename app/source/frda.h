@@ -1,24 +1,8 @@
 #pragma once
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include <3ds/types.h>
 
-typedef enum {
-  NASC_ENV_Prod = 0,
-  NASC_ENV_Test = 1,
-  NASC_ENV_Dev = 2,
-} NascEnvironment;
-
-Result frdAInit();
-void frdAExit();
+Result frdInit();
+void frdExit();
 Handle *frdAGetSessionHandle();
-Result FRDA_CreateLocalAccount(u8 localAccountId, NascEnvironment nascEnvironment, u8 serverTypeField1, u8 serverTypeField2);
-Result FRDA_SetLocalAccountId(u8 localAccountId);
-Result FRDA_SetClientSdkVersion(u32 sdkVer);
-
-#ifdef __cplusplus
-}
-#endif
+Result FRDA_DeleteLocalAccount(u8 localAccountId);
