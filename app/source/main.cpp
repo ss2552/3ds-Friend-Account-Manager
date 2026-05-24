@@ -9,13 +9,12 @@ int main(){
 
   int const pretendo_act = 2;
 
-  // frdAInit();
   frdInit();
 
   // This version or higher is required creating/swaping local accounts
   // FRD_SetClientSdkVersion(0x70000c8);
 
-  handleResult(FRDA_DeleteLocalAccount(pretendo_act));
+  FRDA_DeleteLocalAccount(pretendo_act);
   
   frdExit();
   return 0;
