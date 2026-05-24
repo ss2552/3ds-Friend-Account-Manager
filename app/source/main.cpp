@@ -14,6 +14,9 @@
   }
 
 int main(int argc, char *argv[]) {
+
+  int const pretendo_act = 2;
+  
   nsInit();
   frdAInit();
   gfxInitDefault();
@@ -26,9 +29,7 @@ int main(int argc, char *argv[]) {
 
   printf("Friend account manager\n");
   printf("Press \"Start\" to quit or reboot\n");
-  printf("Press \"A\" to create a new account 2\n");
-  printf("Press \"X\" to use account 1\n");
-  printf("Press \"Y\" to use account 2\n\n");
+  printf("Press \"X\" to delete account 2\n");
 
   // Main loop
   while (aptMainLoop()) {
@@ -46,20 +47,11 @@ int main(int argc, char *argv[]) {
       }
     }
 
-    if (kDown & KEY_A) {
-      printf("Creating local account Id 2...\n");
-      handleResult(FRDA_CreateLocalAccount(2, NASC_ENV_Prod, 0, 1));
-    }
-
     if (kDown & KEY_X) {
       printf("Using local account Id 1...\n");
-      handleResult(FRDA_SetLocalAccountId(1));
+      handleResult(FRDA_DeleteLocalAccount(pretendo_act));
     }
 
-    if (kDown & KEY_Y) {
-      printf("Using local account Id 2...\n");
-      handleResult(FRDA_SetLocalAccountId(2));
-    }
   }
 
   gfxExit();
