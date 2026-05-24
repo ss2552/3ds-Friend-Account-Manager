@@ -15,7 +15,7 @@ int main() {
 
   consoleClear();
   
-  printf("please to X_key  ¥n");
+  printf("\nplease to X_key\n");
   
   // Main loop
   while (aptMainLoop()) {
