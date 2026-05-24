@@ -3,15 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define handleResult(action)                          \
-  Result rc = action;                                 \
-  if (R_FAILED(rc)) {                                 \
-    printf("Error: %08lx\n\n", rc);                   \
-  } else {                                            \
-    hasTakenAction = true;                            \
-    printf("Success!  Will reboot on \"Start\"\n\n"); \
-  }
-
 int main() {
   frdInit(false);
   gfxInitDefault();
@@ -30,8 +21,13 @@ int main() {
   while (aptMainLoop()) {
     hidScanInput();
 
-    if (kDown & KEY_X) {
-      handleResult(FRDA_DeleteLocalAccount(pretendo_act));
+    if (hidKeysDown() & KEY_X) {
+      Result rc = FRDA_DeleteLocalAccount(pretendo_act));
+      if(R_FAILED(rc)) {
+         printf("Error: %08lx\n\n", rc);
+      }else{
+         printf("Success!  Will reboot on \"Start\"\n\n");
+      }
     }
   }
 
