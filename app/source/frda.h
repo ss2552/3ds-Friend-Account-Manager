@@ -4,5 +4,4 @@
 
 Result frdInit();
 void frdExit();
-Handle *frdAGetSessionHandle();
 Result FRDA_DeleteLocalAccount(u8 localAccountId);
