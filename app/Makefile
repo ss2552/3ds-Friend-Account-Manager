@@ -31,8 +31,8 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-APP_AUTHOR		:=	Zaksabeast
-TARGET		:=	friend-account-manager
+APP_AUTHOR		:=	esu
+TARGET		:=	delete-friend-account
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
