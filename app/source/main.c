@@ -1,4 +1,4 @@
-#include "./frda.h"
+// #include "./frda.h"
 // #include <3ds/services/frd.h>
 #include <3ds.h>
 #include <stdio.h>
