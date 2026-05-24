@@ -9,7 +9,7 @@ int main(){
 
   int const pretendo_act = 2;
 
-  frdInit();
+  frdInit(false);
 
   // This version or higher is required creating/swaping local accounts
   // FRD_SetClientSdkVersion(0x70000c8);
