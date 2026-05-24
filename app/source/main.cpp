@@ -1,24 +1,22 @@
-// #include "./frda.h"
-#include <3ds/services/frd.h>
+#include "./frda.h"
+// #include <3ds/services/frd.h>
 #include <3ds.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char *argv[]) {
+int main(){
 
   int const pretendo_act = 2;
-  
-  nsInit();
+
   // frdAInit();
   frdInit();
 
   // This version or higher is required creating/swaping local accounts
-  FRD_SetClientSdkVersion(0x70000c8);
+  // FRD_SetClientSdkVersion(0x70000c8);
 
   handleResult(FRDA_DeleteLocalAccount(pretendo_act));
   
   frdExit();
-  nsExit();
   return 0;
 }
