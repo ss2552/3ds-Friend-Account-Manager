@@ -16,7 +16,8 @@ int main(){
   
   int const pretendo_act = 2;
 
-  print("\n\n\n");
+  printf("\n\n\n");
+  
   printf("please to X\n");
   // printf("Press Y to use nintendo account\n");
   printf("Press A to create a new account 2\n");
