@@ -23,7 +23,7 @@ int main(){
   printf("exit to SELECT\n");
   printf("Reboot on START\n");
 
-  print("\n");
+  printf("\n");
   
   while (aptMainLoop()){
     
@@ -41,7 +41,7 @@ int main(){
     }
 
     if (kDown & KEY_Y) {
-      printf("Using local account Id 1...\n");
+      printf("Using nintendo account\n");
       Result rc = FRDA_SetLocalAccountId(1);
       if(R_FAILED(rc)){
          printf("Error: %08lx", rc);
@@ -52,9 +52,9 @@ int main(){
     }
 
     if (kDown & KEY_A) {
-      printf("Creating local account Id 2...\n");
+      printf("Creating pretendo account\n");
       // (Re)Create the friend account
-      Result rc = FRDA_CreateLocalAccount(pretendo_act, static_cast<u8>(NASC_ENV_Test), 0, 1);
+      Result rc = FRDA_CreateLocalAccount(pretendo_act, NASC_ENV_Test, 0, 1);
       if(R_FAILED(rc)){
          printf("Error: %08lx", rc);
       }else{
