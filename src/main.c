@@ -18,7 +18,7 @@ int main(){
 
   print("\n\n\n");
   printf("please to X\n");
-  printf("Press Y to use nintendo account\n");
+  // printf("Press Y to use nintendo account\n");
   printf("Press A to create a new account 2\n");
   printf("exit to SELECT\n");
   printf("Reboot on START\n");
@@ -40,21 +40,32 @@ int main(){
       printf("\n");
     }
 
+    /*
     if (kDown & KEY_Y) {
       printf("Using nintendo account\n");
-      Result rc = FRDA_SetLocalAccountId(1);
+      Result rc
+      
+      rc = FRDA_UnLoadLocalAccount(1);
       if(R_FAILED(rc)){
          printf("Error: %08lx", rc);
-      }else{
-         printf("Success!: %08lx", rc);
       }
+      
       printf("\n");
+      
+      rc = FRDA_LoadLocalAccount(1);
+      if(R_FAILED(rc)){
+         printf("Error: %08lx", rc);
+      }
+      
+      printf("\n");
+      
     }
+    */
 
     if (kDown & KEY_A) {
       printf("Creating pretendo account\n");
       // (Re)Create the friend account
-      Result rc = FRDA_CreateLocalAccount(pretendo_act, NASC_ENV_Test, 0, 1);
+      Result rc = FRDA_CreateLocalAccount(pretendo_act, (u8)NASC_ENV_Test, 0, 1);
       if(R_FAILED(rc)){
          printf("Error: %08lx", rc);
       }else{
