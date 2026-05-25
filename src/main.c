@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main() {
+int main(){
   nsInit();
   frdInit(false);
   gfxInitDefault();
@@ -15,21 +15,21 @@ int main() {
   int const pretendo_act = 2;
 
   print("\n\n\n");
-  printf("please to X_key\n");
+  printf("please to X\n");
   printf("exit to SELECT\n");
   printf("Reboot on START\n");
 
-  while (aptMainLoop()) {
-    hidScanInput();
-
-    u8 kdown = hidKeysDown();
+  while (aptMainLoop()){
     
-    if (kDown & KEY_X) {
+    hidScanInput();
+    u32 kdown = hidKeysDown();
+    
+    if (kDown & KEY_X){
       Result rc = FRDA_DeleteLocalAccount(pretendo_act);
-      if(R_FAILED(rc)) {
-         printf("Error: %08lx\n", rc);
+      if(R_FAILED(rc)){
+         printf("Error: %08lx", rc);
       }else{
-         printf("Success!: %08lx\n", rc);
+         printf("Success!: %08lx", rc);
       }
     }
 
