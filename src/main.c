@@ -4,6 +4,7 @@
 #include <string.h>
 
 int main() {
+  nsInit();
   frdInit(false);
   gfxInitDefault();
   consoleInit(GFX_TOP, NULL);
@@ -13,26 +14,38 @@ int main() {
   
   int const pretendo_act = 2;
 
-  consoleClear();
-  
-  printf("\nplease to X_key\n");
-  
-  // Main loop
+  print("\n\n\n");
+  printf("please to X_key\n");
+  printf("exit to SELECT\n");
+  printf("Reboot on START\n");
+
   while (aptMainLoop()) {
     hidScanInput();
 
-    if (hidKeysDown() & KEY_X) {
+    u8 kdown = hidKeysDown();
+    
+    if (kDown & KEY_X) {
       Result rc = FRDA_DeleteLocalAccount(pretendo_act);
       if(R_FAILED(rc)) {
-         printf("Error: %08lx\n\n", rc);
+         printf("Error: %08lx\n", rc);
       }else{
-         printf("Success!  Will reboot on \"Start\"\n\n");
+         printf("Success!: %08lx\n", rc);
       }
     }
+
+    if(kDown & KEY_START){
+      NS_RebootSystem();
+    }
+    
+    if(kDown & KEY_SELECT){
+      break;
+    }
+    
   }
 
   gfxExit();
   frdExit();
+  nsExit();
   return 0;
 }
 
