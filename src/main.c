@@ -28,7 +28,7 @@ int main(){
   while (aptMainLoop()){
     
     hidScanInput();
-    u32 kdown = hidKeysDown();
+    u32 kDown = hidKeysDown();
     
     if (kDown & KEY_X){
       Result rc = FRDA_DeleteLocalAccount(pretendo_act);
@@ -37,7 +37,7 @@ int main(){
       }else{
          printf("Success!: %08lx", rc);
       }
-      print("\n");
+      printf("\n");
     }
 
     if (kDown & KEY_Y) {
@@ -48,7 +48,7 @@ int main(){
       }else{
          printf("Success!: %08lx", rc);
       }
-      print("\n");
+      printf("\n");
     }
 
     if (kDown & KEY_A) {
@@ -60,7 +60,7 @@ int main(){
       }else{
          printf("Success!: %08lx", rc);
       }
-      print("\n");
+      printf("\n");
     }
     
     if(kDown & KEY_START){
