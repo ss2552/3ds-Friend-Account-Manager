@@ -16,6 +16,7 @@ int main(){
 
   print("\n\n\n");
   printf("please to X\n");
+  printf("Press Y to use nintendo account\n");
   printf("exit to SELECT\n");
   printf("Reboot on START\n");
 
@@ -33,6 +34,11 @@ int main(){
       }
     }
 
+    if (kDown & KEY_Y) {
+      printf("Using local account Id 1...\n");
+      handleResult(FRDA_SetLocalAccountId(1));
+    }
+    
     if(kDown & KEY_START){
       NS_RebootSystem();
     }
