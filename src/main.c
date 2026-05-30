@@ -8,8 +8,6 @@
 int main(){
   nsInit();
   frdInit(false);
-   event;
-  FRD_Login(event);
   gfxInitDefault();
   consoleInit(GFX_TOP, NULL);
 
@@ -88,7 +86,6 @@ int main(){
   }
 
   gfxExit();
-  FRD_Logout();
   frdExit();
   nsExit();
   return 0;
